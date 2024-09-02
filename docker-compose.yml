@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+    client:
+        container_name: frontend
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        image: client
+        depends_on:
+          - postgres
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./frontend:/app
+    server:
+        container_name: server
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        image: server
+        depends_on:
+          - postgres
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./backend:/app
+    postgres:
+      image: postgres:${POSTGRES_VERSION:-13}-alpine
+      ports:
+        - "5432:5432"
+      environment:
+        POSTGRES_DB: ipm
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: postgres
+      volumes:
+        - ./backend/var/db-data:/var/lib/postgresql/data:rw

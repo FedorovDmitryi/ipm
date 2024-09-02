@@ -1,0 +1,73 @@
+/* Header.css */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.sticky-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sticky-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.sticky-header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sticky-header a:hover {
+    text-decoration: underline;
+}
+
+.sticky-header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.sticky-header nav ul li {
+    margin-right: 20px;
+}
+
+.sticky-header nav ul li:last-child {
+    margin-right: 0;
+}
+
+.sticky-header p {
+    margin: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .sticky-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sticky-header nav ul {
+        flex-direction: column;
+    }
+
+    .sticky-header nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .sticky-header nav ul li:last-child {
+        margin-bottom: 0;
+    }
+}
